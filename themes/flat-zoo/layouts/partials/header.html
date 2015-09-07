@@ -1,0 +1,30 @@
+<div id="wrap" class="stripe fixed-enabled grid_1200">
+	<div class="wrap-search">
+		<form method="post">
+			<input type="search" name="s" value="Search here ..." onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+		</form>
+	</div><!-- End wrap-search -->
+	<header id="header">
+		<div class="container clearfix">
+            <div class="logo">
+                {{ .Site.Title }}
+            </div><!-- End logo -->
+            <div class="header-search">
+                <div class="header-search-a"><i class="fa fa-search"></i></div>
+            </div><!-- End header-search -->
+            <nav class="navigation">
+            <ul>
+                <li class="current_page_item"><a href="{{ .Site.BaseURL }}">Home</a>
+                </li>
+                {{ $baseurl := .Site.BaseURL }}
+                {{ range $key, $value := .Site.Taxonomies.categories }}
+                <li class=""><a href="{{ $baseurl }}categories/{{ $key | urlize }}/index.html">{{ $key | title }}</a>
+                {{ end }}
+            </ul>
+            </nav><!-- End navigation -->
+            <nav class="navigation_mobile navigation_mobile_main">
+                <div class="navigation_mobile_click">Go to...</div>
+                <ul></ul>
+            </nav><!-- End navigation_mobile -->
+        </div><!-- End container -->
+	</header><!-- End header -->

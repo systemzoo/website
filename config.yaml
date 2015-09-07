@@ -1,0 +1,24 @@
+---
+baseurl: "http://systemzoo.org/"
+languageCode: "en-us"
+title: "SystemZoo"
+permalinks:
+  post: /:year/:month/:title/
+# Additional site configuration
+defaultLayout:	"page"
+defaultExtension: "html"
+paginate: 10
+paginatePath: "page"
+publishdir: "public"
+theme: "flat-zoo"
+MetaDataFormat: "yaml"
+params:
+  Description: "Solving technology problems with friends."
+  GithubOrg: systemzoo
+# Location for the RTMP streamer / S3 bucket - base location.
+# Include the trailing slash. Templates do not assume responsibility
+# of injecting the separator.
+  Mediabase: "rtmp://s3wufzlfzwa3x.cloudfront.net/cfx/st/"
+  Jwplayer: "http://content.jwplatform.com/libraries/rR9Gh57z.js"
+  # Google Analytics ID
+  GATID: UA-67277032-1

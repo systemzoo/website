@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en-US"> <!--<![endif]-->
+
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+      {{ partial "header.html" . }}
+      <div class="clearfix"></div>
+          <div class="sections">
+              <div class="container">
+                  <div class="row">
+                    <div class="col-md-8 main-content">
+                      <!-- Main Content -->
+                      {{ range first 10 .Data.Pages }}
+                        {{ if eq .Section "post" }}
+                          {{ partial "archetype/post.html" . }}
+                        {{ end }}
+                        {{ if eq .Section "video" }}
+                          {{ partial "archetype/video.html" . }}
+                        {{ end }}
+                        {{ if eq .Section "podcast" }}
+                          {{ partial "archetype/podcast.html" . }}
+                        {{ end }}
+                      {{ end }}
+                      <!-- end main content -->
+                    </div>
+                      <div class="col-md-4 sidebar">
+                          <!-- Sidebar -->
+                          <!-- end sidebar -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> <!-- close clearfix -->
+      <div class="go-up"><i class="fa fa-chevron-up"></i></div>
+      {{ partial "footer.html" . }}
+  </body>
+</html>
