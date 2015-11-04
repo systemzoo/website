@@ -15,6 +15,7 @@ MetaDataFormat: "yaml"
 params:
   Description: "Solving technology problems with friends."
   GithubOrg: systemzoo
+  Twitter: systemszoo
 # Location for the RTMP streamer / S3 bucket - base location.
 # Include the trailing slash. Templates do not assume responsibility
 # of injecting the separator.

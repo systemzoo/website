@@ -5,7 +5,7 @@
             <div><i class="fa fa-clock-o"></i>{{ .Date.Format "Jan 01 2006" }}</div>
             <div><i class="fa fa-folder-open"></i>IN :
               {{ range $index, $cat := .Params.categories }}
-                <a href="{{ $cat }}">{{ $cat }}</a>{{if not $index}},{{end}}
+                <a href="{{ $cat }}">{{ $cat }}</a>
               {{ end }}
             </div>
 
