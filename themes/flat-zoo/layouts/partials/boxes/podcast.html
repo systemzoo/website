@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="col-md-12 main-content">
+		<div class="row blog-all">
+			<div class="post post-3 col-md-6 post-image">
+				<div class="post-head"><h3><a href="{{.Permalink}}">{{ .Title }}</a></h3>
+					<div class="post-meta">
+						<div><i class="fa fa-user"></i>BY : <a href="#">{{ .Params.author }}</a></div>
+						<div><i class="fa fa-clock-o"></i>{{ .Date.Format "Jan 01 2006" }}</div>
+					</div><!-- End post-meta -->
+					<div class="clearfix"></div>
+				</div><!-- End post-head -->
+				<div class="post-wrap">
+					<div class="post-img">
+            <a href="{{ .Permalink }}">
+              <img src="{{ .Params.image }}" alt="{{ .Title }}">
+            </a>
+          </div>
+					<div class="post-inner">
+						<p>{{ .Summary }}</p>
+						<div class="clearfix"></div>
+						<div class="post-share-view">
+							<div class="post-meta">
+								<div class="post-meta-share">
+									<i class="fa fa-share-alt"></i>
+									<a href="#">Share This</a>
+									<div class="share-social">
+										<ul>
+											<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+										</ul>
+										<i class="fa fa-caret-down"></i>
+									</div><!-- End follow-social -->
+								</div>
+								<a href="{{ .Permalink }}" class="button post-more">Play Episode</a>
+							</div><!-- End post-meta -->
+						</div><!-- End post-share-view -->
+						<div class="clearfix"></div>
+					</div><!-- End post-inner -->
+				</div><!-- End post-wrap -->
+			</div><!-- End post -->
+    </div>

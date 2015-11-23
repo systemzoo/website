@@ -23,7 +23,11 @@
              jwplayer('{{ .Title | urlize }}').setup({
                 file: "https://s3.amazonaws.com/systemzoo-media/juju-intro-flow-rev1.mp4",
                 width: "100%",
-                height: "auto"
+                height: "auto",
+                controlbar: "bottom",
+                allownetworking: 'all',
+                icons: 'true',
+                wmode: 'transparent'
              });
             </script>
           {{ end }}

@@ -1,6 +1,6 @@
 
 <div class="post post-image">
-    <div class="post-head"><h3><a href="{{ .URL }}">{{ .Title }}</a></h3>
+    <div class="post-head"><h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
         <div class="post-meta">
             <div><i class="fa fa-user"></i>BY : {{ .Params.author }}</div>
             <div><i class="fa fa-clock-o"></i>{{ .Date.Format "Jan 01 2006" }}</div>
@@ -14,9 +14,103 @@
         <div class="clearfix"></div>
     </div><!-- End post-head -->
     <div class="post-wrap">
-        <div class="post-img"><a href="{{ .URL }}"><img alt="" src="http://placehold.it/768x432"></a></div>
+        <div class="post-img">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}">
+          {{ if .Params.embed_uri }}
+          <div id='{{ .Title | urlize }}'></div>
+          <video id="my-video" class="video-js" controls preload="auto" width="100%" height="25"
+              poster="{{ .Params.image }}" data-setup="{}">
+                <source src="{{ .Params.embed_uri }}" type='audio/mp3'>
+                <p class="vjs-no-js">
+                  To view this video please enable JavaScript, and consider upgrading to a web browser that
+                  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+              </video>
+          {{ end }}
+        </div>
         <div class="post-inner">
-            <p>{{ .Summary}}</p>
+          <h2> Show Notes </h2>
+            <p>{{ .Content }}</p>
+
+            <h3> Hosts </h3>
+            {{ range $person :=.Params.hosts }}
+              {{ if isset $.Site.Data.hosts $person }}
+              {{ $p :=  (index $.Site.Data.hosts $person) }}
+              <div class="row">
+                    <div class="col-md-3">
+                      <img alt = "{{ $p.FullName }}" src = "/images/host/{{$person}}.jpg" class="img-responsive" width = "250px">
+                    </div>
+                  <div class= "col-md-8">
+                    <h2>{{ $p.FullName }}</h2>
+                    {{ if isset $p "Bio" }}
+                      <p>{{ $p.Bio | markdownify }}</p>
+                    {{ end }}
+                    {{ if isset $p "Site" }}
+                      <a href = "{{ $p.Site}}"><i class="fa fa-home fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "Twitter" }}
+                      <a href = "https://twitter.com/{{ $p.Twitter }}"><i class="fa fa-twitter-square fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "GitHub"}}
+                      <a href = "https://github.com/{{ $p.GitHub}}"><i class="fa fa-github-square fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "LinkedIn" }}
+                      <a href = "{{ $p.LinkedIn}}"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "Facebook" }}
+                      <a href = "{{ $p.Facebook}}"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    {{ end }}
+                  </div>
+                {{ end }}
+              </div>
+            {{ end }}
+
+            <h3> Guests </h3>
+            {{ range $person :=.Params.guests }}
+              {{ if isset $.Site.Data.guests $person }}
+              {{ $p :=  (index $.Site.Data.guests $person) }}
+              <div class="row">
+                    <div class="col-md-3">
+                      <img alt = "{{ $p.FullName }}" src = "/images/guest/{{$person}}.jpg" class="img-responsive" width = "250px">
+                    </div>
+                  <div class= "col-md-8">
+                    <h2>{{ $p.FullName }}</h2>
+                    {{ if isset $p "Bio" }}
+                      <p>{{ $p.Bio | markdownify }}</p>
+                    {{ end }}
+                    {{ if isset $p "Site" }}
+                      <a href = "{{ $p.Site}}"><i class="fa fa-home fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "Twitter" }}
+                      <a href = "https://twitter.com/{{ $p.Twitter }}"><i class="fa fa-twitter-square fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "GitHub"}}
+                      <a href = "https://github.com/{{ $p.GitHub}}"><i class="fa fa-github-square fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "LinkedIn" }}
+                      <a href = "{{ $p.LinkedIn}}"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset $p "Facebook" }}
+                      <a href = "{{ $p.Facebook}}"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    {{ end }}
+                  </div>
+                {{ end }}
+              </div>
+            {{ end }}
+            <hr />
+            {{ if .Params.extras }}
+            <h2> Extras </h2>
+            {{ range .Params.extras }}
+            <video id="my-video" class="video-js" controls preload="auto" width="100%" height="25"
+               data-setup="{}">
+                  <source src="{{ . }}" type='audio/mp3'>
+                  <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                  </p>
+                </video>
+            {{ end }}
+            {{ end }}
             <div class="clearfix"></div>
             <div class="post-share-view">
                 <div class="post-meta">
@@ -37,7 +131,6 @@
                             <i class="fa fa-caret-down"></i>
                         </div><!-- End follow-social -->
                     </div>
-                    <a href="{{ .URL }}" class="button post-more">Continue Reading</a>
                 </div><!-- End post-meta -->
             </div><!-- End post-share-view -->
             <div class="clearfix"></div>

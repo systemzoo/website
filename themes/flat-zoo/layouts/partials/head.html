@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="/css/prettyPhoto.css">
 <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/fontello/css/fontello.css">
-<link rel="stylesheet" href="/css/animate-custom.css">
 
 
 <!-- Main Style -->
@@ -45,7 +44,7 @@
 {{ end }}
 
 
-<!-- sorry, this is part of the packaged deal. -->
-{{ if isset .Site.Params "Jwplayer" }}
-<script src="{{ .Site.Params.Jwplayer }}"></script>
-{{ end }}
+<!-- Use Video.js for all the things because they rock -->
+<link href="http://vjs.zencdn.net/5.2.1/video-js.css" rel="stylesheet">
+<!-- If you'd like to support IE8 -->
+<script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>

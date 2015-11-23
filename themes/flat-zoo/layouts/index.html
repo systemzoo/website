@@ -11,26 +11,16 @@
           <div class="sections">
               <div class="container">
                   <div class="row">
-                    <div class="col-md-8 main-content">
+                    <div class="col-md-12 main-content">
                       <!-- Main Content -->
                       {{ range first 10 .Data.Pages }}
-                        {{ if eq .Section "post" }}
-                          {{ partial "archetype/post.html" . }}
-                        {{ end }}
-                        {{ if eq .Section "video" }}
-                          {{ partial "archetype/video.html" . }}
-                        {{ end }}
                         {{ if eq .Section "podcast" }}
-                          {{ partial "archetype/podcast.html" . }}
+                          {{ partial "boxes/podcast.html" . }}
                         {{ end }}
                       {{ end }}
                       <!-- end main content -->
                     </div>
-                      <div class="col-md-4 sidebar">
-                          <!-- Sidebar -->
-                          {{ partial "sidebar.html" . }}
-                          <!-- end sidebar -->
-                      </div>
+                    
                   </div>
               </div>
           </div>
