@@ -69,7 +69,7 @@
             {{ range $person :=.Params.guests }}
               {{ if isset $.Site.Data.guests $person }}
               {{ $p :=  (index $.Site.Data.guests $person) }}
-              <div class="row">
+              <div class="row guest">
                     <div class="col-md-3">
                       <img alt = "{{ $p.FullName }}" src = "/images/guest/{{$person}}.jpg" class="img-responsive" width = "250px">
                     </div>
@@ -101,7 +101,7 @@
             {{ if .Params.extras }}
             <h2> Extras </h2>
             {{ range .Params.extras }}
-            <video id="my-video" class="video-js" controls preload="auto" width="100%" height="25"
+            <video id="video2" class="video-js" controls preload="auto" width="100%" height="25"
                data-setup="{}">
                   <source src="{{ . }}" type='audio/mp3'>
                   <p class="vjs-no-js">
@@ -109,14 +109,14 @@
                     <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                   </p>
                 </video>
-            {{ end }}  
+            {{ end }}
             {{ end }}
             <div class="clearfix"></div>
             <div class="post-share-view">
                 <div class="post-meta">
                     <div><i class="fa fa-tags"></i>
                       {{ range $index, $tag := .Params.tags }}
-                        <a href="{{ $tag }}">{{ $tag }}</a>{{if not $index}},{{end}}
+                        {{ $tag }}{{if not $index}},{{end}}
                       {{ end }}
                     </div>
                     <div class="post-meta-share">

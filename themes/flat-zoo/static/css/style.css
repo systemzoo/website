@@ -3781,7 +3781,7 @@ a.button,.post-link .post-inner.link:hover .fa-link,.comment-edit-link,.comment-
 .social-ul li:hover i,.header-search-a:hover i,.box-icon:hover .box-icon-i-2 i,.portfolio-link:hover i,.portfolio-zoom:hover i {
 	-webkit-animation: toTopFromBottom 0.3s forwards;
 	-moz-animation: toTopFromBottom 0.3s forwards;
-	animation: toTopFromBottom 0.3s forwards; 
+	animation: toTopFromBottom 0.3s forwards;
 }
 /* Keyframes */
 @-webkit-keyframes toLeftFromRight {
@@ -3926,4 +3926,8 @@ a.button,.post-link .post-inner.link:hover .fa-link,.comment-edit-link,.comment-
 	51% {
 		opacity: 1;
 	}
+}
+
+.row .guest {
+	margin-top: 25px;
 }
