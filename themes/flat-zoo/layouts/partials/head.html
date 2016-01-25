@@ -30,7 +30,12 @@
 <link rel="shortcut icon" href="=images/favicon.png">
 
 <!-- Podcast Atom feed -->
-<link rel="alternate" type="application/rss+xml" title="Podcast feed" href="index.xml"/>
+<link href="/podcasts/index.xml" rel="alternate" type="application/rss+xml" title="Podcast feed" />
+<!-- Full site Atom feed -->
+{{ if .RSSlink }}
+<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+<link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ end }}
 
 
 {{ if isset .Site.Params "GATID" }}
