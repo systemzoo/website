@@ -1,0 +1,35 @@
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>System Zoo</title>
+    <link>{{ .Permalink }}</link>
+    <language>en-us</language>
+    <copyright>Copyleft 2015 SystemZoo</copyright>
+    <itunes:subtitle></itunes:subtitle>
+    <itunes:author></itunes:author>
+    <itunes:summary></itunes:summary>
+    <description></description>
+    <itunes:owner>
+    <itunes:name></itunes:name>
+    <itunes:email></itunes:email>
+    </itunes:owner>
+    <itunes:image href="" />
+    <itunes:category text="Technology">
+      <itunes:category text="Software How-To" />
+      <itunes:category text="Tech News" />
+    </itunes:category>
+    {{ range first 50 .Data.Pages }}
+    {{ if eq .Type "podcast"}}
+    <item>
+      <title>{{ title .Title }} - {{ .Params.subtitle }}</title>
+      <itunes:author>{{ .Params.author }}</itunes:author>
+      <itunes:summary><![CDATA[{{ .Description }}]></itunes:summary>
+      <enclosure url="{{ .Params.embed_url }}" type="audio/x-mp3" />
+      <guid>{{ .Params.embed_url }}</guid>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }} </pubDate>
+      <itunes:duration></itunes:duration>
+    </item>
+    {{ end }}
+    {{ end }}
+  </channel>
+</rss>
