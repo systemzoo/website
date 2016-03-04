@@ -4,3 +4,8 @@ build:
     - rm -rf public/*
     - hugo -t $$THEME
     - s3cmd --access_key=$$ACCESS_KEY_ID --secret_key=$$SECRET_ACCESS_KEY --no-mime-magic --guess-mime-type --acl-public --delete-removed sync public/* s3://$$BUCKET/
+notify:
+  slack:
+    webhook_url: https://hooks.slack.com/services/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
+    channel: ops
+    username: drone
